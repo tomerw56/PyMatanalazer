@@ -2,6 +2,7 @@ from PyMatAnalyzer.Tests.BaseClasses.ITestConfigProvider import ITestConfigProvi
 from PyMatAnalyzer.Tests.BaseClasses.ITestFramework import ITestFramework
 from PyMatAnalyzer.Tests.BaseClasses.TestRunOutcome import TestRunOutcome
 from PyMatAnalyzer.Tests.BaseClasses.Enums import RunOutcomeEnum
+from PyMatAnalyzer.Tests.BaseClasses.IRunMetaDataMonitorWriter import IRunMetaDataMonitorWriter
 from PyMatAnalyzer.Tests.BaseClasses.RunMetaDataMonitor import RunMetaDataMonitor
 from PyMatAnalyzer.Tests.Engine.DefaultImplimentations.LoggerRunMetaDataMonitorWriter import LoggerRunMetaDataMonitorWriter
 from zenlog import log
@@ -11,17 +12,17 @@ from timeit import default_timer as timer
 
 
 class TestsRunner():
-    def __init__(self,configProvider:ITestConfigProvider,testsList:Dict[str,ITestFramework],meta_data_monitor:RunMetaDataMonitor=None,logger=None):
+    def __init__(self,configProvider:ITestConfigProvider,testsList:Dict[str,ITestFramework],run_meta_data_writer:IRunMetaDataMonitorWriter=None,logger=None):
         self.__testList=testsList
         self.__configProvider=configProvider
         if logger==None:
             self.__logger=log
         else:
             self.__logger = logger
-        if meta_data_monitor==None:
+        if run_meta_data_writer==None:
             self.__meta_data_monitor=RunMetaDataMonitor(LoggerRunMetaDataMonitorWriter(self.__logger))
         else:
-            self.meta_data_monitor=meta_data_monitor
+            self.__meta_data_monitor=RunMetaDataMonitor(run_meta_data_writer)
 
     def Execute(self):
         for key,value in self.__testList.items():
