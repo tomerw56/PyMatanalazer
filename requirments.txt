@@ -1,0 +1,12 @@
+bunch==1.0.1
+colorama==0.4.4
+colorlog==4.6.2
+munch==2.5.0
+numpy==1.19.4
+pandas==1.2.0
+prettytable==2.0.0
+python-dateutil==2.8.1
+pytz==2020.5
+six==1.15.0
+wcwidth==0.2.5
+zenlog==1.1
