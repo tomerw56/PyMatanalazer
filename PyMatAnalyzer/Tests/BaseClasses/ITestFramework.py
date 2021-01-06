@@ -18,4 +18,8 @@ class ITestFramework():
     def Run(self,**kwargs)->TestRunOutcome:
         pass
 
+    @property
+    def get_params(self):
+        return self.__params
+
 
