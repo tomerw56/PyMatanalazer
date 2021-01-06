@@ -1,5 +1,10 @@
+from typing import Dict
 from abc import ABC,abstractmethod,ABCMeta
 class IOutputWriter(metaclass=ABCMeta):
     @abstractmethod
-    def WriteOutput(self,field:str,sub_field:str,ouput:object):
+    def WriteOutput(self,**kwargs)->bool:
+        pass
+
+    @abstractmethod
+    def SupportedKeys(self)->Dict[str,str]:
         pass

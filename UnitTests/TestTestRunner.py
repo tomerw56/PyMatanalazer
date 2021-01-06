@@ -12,7 +12,7 @@ import copy
 from unittest import TestCase
 from unittest.mock import Mock, create_autospec, patch
 
-class Test_Success_singular(TestCase):
+class Test_Success(TestCase):
     def setUp(self):
         self.__summery={}
         self.__summery[RunOutcomeEnum.OK]=[]
