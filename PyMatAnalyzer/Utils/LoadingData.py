@@ -8,3 +8,9 @@ class LoadingData:
     @property
     def is_file_valid(self):
         return Path(self.file_path).is_file()
+
+    @property
+    def class_name(self):
+        if "." in self.full_module_and_class_name:
+            return self.full_module_and_class_name.split('.')[:-1][0]
+        return self.full_module_and_class_name
