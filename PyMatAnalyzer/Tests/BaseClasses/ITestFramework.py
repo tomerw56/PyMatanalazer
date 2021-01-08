@@ -24,13 +24,13 @@ class ITestFramework():
             return
         for key,value in self.__writers.items():
             self.__logger.info(f"signaling writer {key} to stop")
-            value.EndWriting()
+            value.EndTestWriting()
     def SignalWritersToStart(self):
         if (self.__writers == None):
             return
         for key,value in self.__writers.items():
             self.__logger.info(f"signaling writer {key} to start")
-            value.PreWriting()
+            value.PreTestWriting()
     @property
     def get_params(self):
         return self.__params

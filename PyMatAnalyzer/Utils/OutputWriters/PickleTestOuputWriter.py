@@ -11,7 +11,7 @@ class PickleTestOutputWriter(IOutputWriter):
         self.__write_folder=write_folder
         self.__supported_keys={'file_name':'file name and folder','value':'value itself'}
 
-    def WriteOutput(self,**kwargs)->bool:
+    def WriteTestOutput(self, **kwargs)->bool:
         if all(elem in kwargs for elem in self.__supported_keys.keys() ):
             try:
                 detination=os.path.join(self.__write_folder,kwargs["file_name"])

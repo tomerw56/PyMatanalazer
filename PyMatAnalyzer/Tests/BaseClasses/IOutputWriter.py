@@ -2,7 +2,7 @@ from typing import Dict
 from abc import ABC,abstractmethod,ABCMeta
 class IOutputWriter(metaclass=ABCMeta):
     @abstractmethod
-    def WriteOutput(self,**kwargs)->bool:
+    def WriteTestOutput(self, **kwargs)->bool:
         pass
 
     @abstractmethod
@@ -10,8 +10,8 @@ class IOutputWriter(metaclass=ABCMeta):
         pass
 
 
-    def EndWriting(self):
+    def EndTestWriting(self):
         pass
 
-    def PreWriting(self):
+    def PreTestWriting(self):
         pass

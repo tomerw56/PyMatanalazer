@@ -7,7 +7,7 @@ class LoggerTestOutputWriter(IOutputWriter):
         self.__write_unknown_values=write_unknown_values
         self.__supported_keys={'headline':'header to print','value':'value itself'}
 
-    def WriteOutput(self,**kwargs)->bool:
+    def WriteTestOutput(self, **kwargs)->bool:
         if all(elem in kwargs for elem in self.__supported_keys.keys() ):
             self.__logger.info(format(f"{kwargs['headline']}  {kwargs['value']}"))
         else:
