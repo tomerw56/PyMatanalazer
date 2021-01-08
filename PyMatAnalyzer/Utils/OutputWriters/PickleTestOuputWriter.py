@@ -18,9 +18,11 @@ class PickleTestOutputWriter(IOutputWriter):
                 with open(detination,'wb') as outfile:
                     pickle.dump(kwargs["value"],outfile)
             except Exception as e:
-                self.__logger.exception(f'could not write data validate params-> [{detination}]')
-
+                self.__logger.error(f'could not write data validate params-> [{detination}] {e}')
+                return False
+            return True
         else:
-            self.__logger.error(f'could not write data validate params')
+            self.__logger.error(f'could not find needed params')
+            return False
     def SupportedKeys(self)->Dict[str,str]:
         return self.__supported_keys

@@ -4,8 +4,8 @@ from PyMatAnalyzer.Tests.BaseClasses.TestRunOutcome import TestRunOutcome
 from typing import Dict
 class DummyTestFramework(ITestFramework):
 
-    def __init__(self,logger,params:Dict[str,object],outputwriters:Dict[str,IOutputWriter]):
-        ITestFramework.__init__(self,logger,params, outputwriters)
+    def __init__(self,test_name:str,logger,params:Dict[str,object],outputwriters:Dict[str,IOutputWriter]):
+        ITestFramework.__init__(self,test_name,logger,params, outputwriters)
 
     def PreEndOfRun(self,**kwargs):
         self._ITestFramework__logger.info("called PreEndOfRun")

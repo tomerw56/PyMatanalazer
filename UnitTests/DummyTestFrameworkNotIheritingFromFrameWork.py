@@ -4,7 +4,7 @@ from PyMatAnalyzer.Tests.BaseClasses.TestRunOutcome import TestRunOutcome
 from typing import Dict
 class DummyTestFrameworkNotIheritingFromFrameWork(object):
 
-    def __init__(self,logger,params:Dict[str,object],outputwriters:Dict[str,IOutputWriter]):
+    def __init__(self,test_name:str,logger,params:Dict[str,object],outputwriters:Dict[str,IOutputWriter]):
         pass
 
     def PreEndOfRun(self,**kwargs):

@@ -8,3 +8,10 @@ class IOutputWriter(metaclass=ABCMeta):
     @abstractmethod
     def SupportedKeys(self)->Dict[str,str]:
         pass
+
+
+    def EndWriting(self):
+        pass
+
+    def PreWriting(self):
+        pass

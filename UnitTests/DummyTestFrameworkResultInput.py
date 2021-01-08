@@ -5,8 +5,8 @@ from PyMatAnalyzer.Tests.BaseClasses.Enums import RunOutcomeEnum
 from typing import Dict
 class DummyTestFrameworkResultInput(ITestFramework):
 
-    def __init__(self,logger,params:Dict[str,object],outputwriters:Dict[str,IOutputWriter],outcome:RunOutcomeEnum=RunOutcomeEnum.OK):
-        ITestFramework.__init__(self,logger,params, outputwriters)
+    def __init__(self,test_name:str,logger,params:Dict[str,object],outputwriters:Dict[str,IOutputWriter],outcome:RunOutcomeEnum=RunOutcomeEnum.OK):
+        ITestFramework.__init__(self,test_name,logger,params, outputwriters)
         self.__outcome=outcome
 
     def PreEndOfRun(self,**kwargs):

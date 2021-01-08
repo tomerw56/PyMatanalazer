@@ -14,9 +14,10 @@ class TestDynamicTestCreation(unittest.TestCase):
         test_to_run["1"]=data_for_loading
         loader=DynamicTestLoader(log)
         constructor_params={}
+        constructor_params['test_name'] = '1'
         constructor_params['logger']=log
         constructor_params['params']=config.GetConfigValuesForTest('1')[1]
-        constructor_params['outputwriters']=None
+        constructor_params['outputwriters']= {}
         results=loader.GetTestInstances(test_to_run,constructor_params)
         self.assertEqual(len(results),1)
     def test_creation_success_multi(self):
@@ -30,6 +31,8 @@ class TestDynamicTestCreation(unittest.TestCase):
         test_to_run["3"]=data_for_loading_3
         loader=DynamicTestLoader(log)
         constructor_params={}
+        constructor_params['test_name'] = '1'
+
         constructor_params['logger']=log
         constructor_params['params']=config.GetConfigValuesForTest('1')[1]
         constructor_params['outputwriters']=None
@@ -46,6 +49,8 @@ class TestDynamicTestCreation(unittest.TestCase):
         test_to_run["3"]=data_for_loading_3
         loader=DynamicTestLoader(log)
         constructor_params={}
+        constructor_params['test_name'] = '1'
+
         constructor_params['logger']=log
         constructor_params['params']=config.GetConfigValuesForTest('1')[1]
         constructor_params['outputwriters']=None
@@ -62,6 +67,8 @@ class TestDynamicTestCreation(unittest.TestCase):
         test_to_run["3"]=data_for_loading_3
         loader=DynamicTestLoader(log)
         constructor_params={}
+        constructor_params['test_name'] = '1'
+
         constructor_params['logger']=log
         constructor_params['params']=config.GetConfigValuesForTest('1')[1]
         constructor_params['outputwriters']=None
@@ -79,6 +86,8 @@ class TestDynamicTestCreation(unittest.TestCase):
         test_to_run["3"]=data_for_loading_3
         loader=DynamicTestLoader(log)
         constructor_params={}
+        constructor_params['test_name'] = '1'
+
         constructor_params['logger']=log
         constructor_params['params']=config.GetConfigValuesForTest('1')[1]
         constructor_params['outputwriters']=None

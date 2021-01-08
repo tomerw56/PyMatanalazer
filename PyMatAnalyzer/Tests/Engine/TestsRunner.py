@@ -28,14 +28,18 @@ class TestsRunner():
         for key,value in self.__testList.items():
             try:
                 self.__logger.info(f"Handeling test {key}")
+                value.SignalWritersToStart()
                 self.__meta_data_monitor.WriteParmas(key,value.get_params )
                 value.PreStartOfRun()
                 start=timer()
                 outcome=value.Run()
                 end=timer()
                 self.__meta_data_monitor.WriteRunOutput(key,end-start, outcome)
-
                 value.PreEndOfRun()
+                value.SignalWritersToStop()
+
             except Exception as e:
                 self.__meta_data_monitor.WriteException(key,e.__str__())
         self.__meta_data_monitor.WriteSummery()
+
+
